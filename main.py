@@ -1,11 +1,8 @@
-import csv
+import pandas as pd
 
-clean_dataset = []
+data = pd.read_csv('dataset.csv')
 
-with open('dataset.csv', 'r') as file:
-    my_reader = csv.reader(file, delimiter=',')
-    for row in my_reader:
-        if None not in row and '' not in row and row not in clean_dataset:
-            clean_dataset.append(row)
+# print(data)
+clean_data = data.dropna()
 
-print(clean_dataset)
+print(clean_data)
